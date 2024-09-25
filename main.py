@@ -14,7 +14,7 @@ def chat(query):
     global chatStr
     print(chatStr)
     openai.api_key = apikey
-    chatStr += f"Harry: {query}\n Jarvis: "
+    chatStr += f"Ojas: {query}\n Jarvis: "
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt= chatStr,
@@ -24,7 +24,7 @@ def chat(query):
         frequency_penalty=0,
         presence_penalty=0
     )
-    # todo: Wrap this inside of a  try catch block
+
     say(response["choices"][0]["text"])
     chatStr += f"{response['choices'][0]['text']}\n"
     return response["choices"][0]["text"]
